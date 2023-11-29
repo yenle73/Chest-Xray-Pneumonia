@@ -13,5 +13,6 @@ model = pkl.load(input)
 image = st.file_uploader("Choose an image", type=(['png', 'jpeg']))
 
 if image is not None:
-  image_vector = Image(image)
-  model.predict(image_vector)
+  image = Image.open(image)
+  st.image(image, caption = 'Test image')
+  # model.predict(image_vector)
