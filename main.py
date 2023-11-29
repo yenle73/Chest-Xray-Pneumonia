@@ -1,6 +1,7 @@
 import streamlit as st
 from PIL import Image
 import pickle as pkl
+import numpy
 
 class_list = {'0': 'Normal', '1': 'Pneumonia'}
 
