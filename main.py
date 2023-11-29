@@ -10,14 +10,14 @@ st.title('Pneumonia Detection')
 input = open('lrc_xray.pkl', 'rb')
 model = pkl.load(input)
 
-image = st.file_uploader("Choose an image", type=(['png', 'jpeg']))
+image = st.file_uploader("Choose an image", type=(['png', 'jpg', 'jpeg']))
 
 if image is not None:
   image = Image.open(image)
   st.image(image, caption = 'Test image')
 
   if st.button('Predict'):
-    image = image.resize((227*227*3), 1)
+    image = image.resize((227*227*3, 1))
     vector = np.array(image)
     label = st.write(model.predict(vector))
     st.header('Result')
